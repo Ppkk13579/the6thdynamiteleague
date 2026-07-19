@@ -1,4 +1,4 @@
-let matches = [];
+let sheetMatches = [];
 
 fetch(sheetURL)
 .then(res => res.text())
@@ -10,7 +10,7 @@ fetch(sheetURL)
 
     const rows = json.table.rows;
 
-    matches = rows.map(row => {
+    sheetMatches = rows.map(row => {
 
         const c = row.c;
 
@@ -43,6 +43,6 @@ fetch(sheetURL)
 
     });
 
-    console.log(matches);
+    console.log(sheetMatches);
 
 });
