@@ -135,8 +135,16 @@ function createDSPreview() {
 
 const dsSection = document.querySelector(".ds-preview");
 
-if(eventSettings.DS.visible){
-    createDSPreview();
-}else if(dsSection){
-    dsSection.style.display = "none";
-}
+window.addEventListener("matchesLoaded", () => {
+
+    if(eventSettings.DS.visible){
+
+        createDSPreview();
+
+    }else if(dsSection){
+
+        dsSection.style.display = "none";
+
+    }
+
+});
