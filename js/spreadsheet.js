@@ -5,8 +5,13 @@ const sheetURL =
 
 
 fetch(sheetURL)
-.then(res => res.text())
+.then(res => {
+    console.log("fetch成功");
+    return res.text();
+})
 .then(data => {
+
+    console.log(data);
 
     const json = JSON.parse(
         data.substring(47).slice(0,-2)
@@ -14,4 +19,7 @@ fetch(sheetURL)
 
     console.log(json);
 
+})
+.catch(error => {
+    console.error(error);
 });
