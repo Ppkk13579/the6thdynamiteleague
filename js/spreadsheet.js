@@ -54,6 +54,7 @@ fetch(sheetURL)
 
     window.sheetTest = sheetMatches;
 
-　　console.log(sheetMatches);
+console.log("sheetTest登録完了");
+console.log(sheetTest);
 
 });
