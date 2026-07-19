@@ -8,21 +8,26 @@ const match = matches.find(match => match.id === matchId);
 
 let title = "";
 
-    if (match.stage === "レギュラーシーズン") {
+if (match.stage === "レギュラーシーズン") {
+
     title = `第${match.set}セット 第${match.seasonGame}試合`;
 
-    } else if (
+} else if (
     match.stage === "交流戦" ||
     match.stage === "オープン戦"
-    ) {
+) {
+
     title = `${match.stage} 第${match.seasonGame}試合`;
 
-    } else if (!match.set) {
+} else if (!match.set) {
+
     title = `${match.stage} 第${match.game}戦`;
 
-    } else {
-    title = `${match.stage} 第${match.set}セット 第${match.game}戦`;
-    }
+} else {
+
+    title = `${match.stage} ${match.set} 第${match.game}戦`;
+
+}
 
 function getHomeRunNumber(matchId, player){
 
