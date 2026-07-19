@@ -114,7 +114,7 @@ function createSpecialLeague(){
 
 }
 
-function calculateSpecialRanking(ranking, stage, matchList){
+function calculateSpecialRanking(ranking, stage, matchData){
 
     matches.forEach(match => {
 
@@ -252,7 +252,7 @@ const Openleague = createSpecialLeague();
 
 window.addEventListener("matchesLoaded", () => {
 
-matchList.forEach(match => {
+matchData.forEach(match => {
 
     // 試合終了だけ集計
     if (
