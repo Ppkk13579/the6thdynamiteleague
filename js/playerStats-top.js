@@ -1,3 +1,4 @@
+window.addEventListener("matchesLoaded", () => {
 console.log("ランキングJS実行");
 
 console.log(getHomeRunRanking("シティーリーグ"));
@@ -83,3 +84,4 @@ createTopRanking(
     getWinningStarterRanking("ワイルドリーグ"),
     "勝"
 );
+});
