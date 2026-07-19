@@ -17,8 +17,8 @@ let title = "";
     ) {
     title = `${match.stage} 第${match.seasonGame}試合`;
 
-    } else if (match.set) {
-    title = `${match.stage} ${match.set} 第${match.game}戦`;
+    } else if (!match.set) {
+    title = `${match.stage} 第${match.game}戦`;
 
     } else {
     title = `${match.stage} 第${match.game}戦`;
