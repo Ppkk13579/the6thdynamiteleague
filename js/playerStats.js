@@ -24,7 +24,7 @@ function getPlayerTeam(playerName){
     matches.forEach(match=>{
 
 
-        match.homeRuns.forEach(player=>{
+        (match.homeRuns || []).forEach(player=>{
 
             if(player.player === playerName){
                 team = match.home;
@@ -33,7 +33,7 @@ function getPlayerTeam(playerName){
         });
 
 
-        match.awayRuns.forEach(player=>{
+        (match.awayRuns || []).forEach(player=>{
 
             if(player.player === playerName){
                 team = match.away;
@@ -42,7 +42,7 @@ function getPlayerTeam(playerName){
         });
 
 
-        match.homeSteals.forEach(player=>{
+        (match.homeSteals || []).forEach(player=>{
 
             if(player.player === playerName){
                 team = match.home;
@@ -51,7 +51,7 @@ function getPlayerTeam(playerName){
         });
 
 
-        match.awaySteals.forEach(player=>{
+        (match.awaySteals || []).forEach(player=>{
 
             if(player.player === playerName){
                 team = match.away;
@@ -96,7 +96,7 @@ function getHomeRunRanking(leagueName){
         // ホームラン（ホーム側）
         if(getTeamLeague(match.home) === leagueName){
 
-            match.homeRuns.forEach(hr=>{
+            (match.homeRuns || []).forEach(hr=>{
 
                 if(!players[hr.player]){
                     players[hr.player] = 0;
@@ -112,7 +112,7 @@ function getHomeRunRanking(leagueName){
         // ホームラン（アウェイ側）
         if(getTeamLeague(match.away) === leagueName){
 
-            match.awayRuns.forEach(hr=>{
+            (match.awayRuns || []).forEach(hr=>{
 
                 if(!players[hr.player]){
                     players[hr.player] = 0;
@@ -151,7 +151,7 @@ function getStealRanking(leagueName){
         // ホーム側
         if(getTeamLeague(match.home) === leagueName){
 
-            match.homeSteals.forEach(player=>{
+            (match.homeSteals || []).forEach(player=>{
 
                 if(!players[player.player]){
                     players[player.player]=0;
@@ -167,7 +167,7 @@ function getStealRanking(leagueName){
         // アウェイ側
         if(getTeamLeague(match.away) === leagueName){
 
-            match.awaySteals.forEach(player=>{
+            (match.awaySteals || []).forEach(player=>{
 
                 if(!players[player.player]){
                     players[player.player]=0;
