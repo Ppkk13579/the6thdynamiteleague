@@ -16,7 +16,7 @@ const matches = [
 
             league: "オープン戦",
 
-            set: "",
+            set: "　",
             seasonGame: 1,
 
             date: "2026-07-21",
@@ -972,7 +972,7 @@ const matches = [
 
             league: "ダイナマイトシリーズ",
 
-            set: "",
+            set: "　",
             game: 1,
 
             date: "2026-08-30",
