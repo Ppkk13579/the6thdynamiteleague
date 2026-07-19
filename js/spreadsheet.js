@@ -1,4 +1,11 @@
+console.log("spreadsheet.js 読み込みOK");
+
+const sheetURL =
+"https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&sheet=matches";
+
+
 let sheetMatches = [];
+
 
 fetch(sheetURL)
 .then(res => res.text())
@@ -10,6 +17,7 @@ fetch(sheetURL)
 
     const rows = json.table.rows;
 
+
     sheetMatches = rows.map(row => {
 
         const c = row.c;
@@ -18,6 +26,7 @@ fetch(sheetURL)
             id: c[0].v,
             stage: c[1].v,
             league: c[2].v,
+
             set: c[3]?.v ?? "",
             game: c[4].v,
             seasonGame: c[5].v,
@@ -42,6 +51,7 @@ fetch(sheetURL)
         };
 
     });
+
 
     console.log(sheetMatches);
 
