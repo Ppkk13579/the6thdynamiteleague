@@ -114,9 +114,9 @@ function createSpecialLeague(){
 
 }
 
-function calculateSpecialRanking(ranking, stage, matchData){
+function calculateSpecialRanking(ranking, stage, matchesData){
 
-    matchData.forEach(match => {
+    matchesData.forEach(match => {
 
         // 対象の試合だけ
         if(match.stage !== stage){
