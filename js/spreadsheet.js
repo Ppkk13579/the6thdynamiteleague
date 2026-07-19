@@ -57,5 +57,5 @@ fetch(sheetURL)
     console.log("sheetTest登録完了");
     console.log(sheetTest);
 
-    window.sheetMatches = sheetMatches;
+    window.matches = sheetMatches;
 });
