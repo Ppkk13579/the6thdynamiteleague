@@ -52,10 +52,11 @@ fetch(sheetURL)
 
     });
 
-    window.sheetTest = sheetMatches;
-
-    console.log("sheetTest登録完了");
-    console.log(sheetTest);
-
     window.matches = sheetMatches;
+
+    console.log(sheetMatches);
+
+    window.dispatchEvent(
+    new Event("matchesLoaded")
+);
 });
