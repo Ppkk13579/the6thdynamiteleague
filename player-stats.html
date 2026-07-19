@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>個人成績</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>個人成績</h1>
+
+</header>
+
+
+<nav>
+    <a href="index.html">ホーム</a>
+    <a href="schedule.html">日程</a>
+    <a href="standings.html">順位表</a>
+    <a href="teams.html">チーム</a>
+    <a href="player-stats.html">個人成績</a>
+    <a href="news.html">お知らせ</a>
+</nav>
+
+
+<main>
+
+<div class="filter-title">
+    個人成績を検索
+</div>
+
+<div class="filter">
+
+    <label>
+        リーグ
+        <select id="league-filter">
+            <option value="all">すべて</option>
+            <option value="シティーリーグ">シティーリーグ</option>
+            <option value="ワイルドリーグ">ワイルドリーグ</option>
+        </select>
+    </label>
+
+    <label>
+        部門
+        <select id="category-filter">
+            <option value="all">すべて</option>
+            <option value="hr">本塁打</option>
+            <option value="sb">盗塁</option>
+            <option value="win">勝利先発</option>
+        </select>
+    </label>
+
+</div>
+
+
+<section class="ranking-section">
+
+    <h2>個人成績ランキング</h2>
+
+
+    <h3>シティーリーグ</h3>
+
+<div class="ranking-container">
+
+
+    <div class="ranking-card">
+        <h4>本塁打</h4>
+        <table>
+            <tbody id="city-homeRun-ranking"></tbody>
+        </table>
+    </div>
+
+
+    <div class="ranking-card">
+        <h4>盗塁</h4>
+        <table>
+            <tbody id="city-steal-ranking"></tbody>
+        </table>
+    </div>
+
+
+    <div class="ranking-card">
+        <h4>勝利先発</h4>
+        <table>
+            <tbody id="city-winningStarter-ranking"></tbody>
+        </table>
+    </div>
+
+
+</div>
+
+
+
+    <h3>ワイルドリーグ</h3>
+
+<div class="ranking-container">
+
+
+    <div class="ranking-card">
+
+        <h4>本塁打</h4>
+
+        <table>
+            <tbody id="wild-homeRun-ranking"></tbody>
+        </table>
+
+    </div>
+
+
+    <div class="ranking-card">
+
+        <h4>盗塁</h4>
+
+        <table>
+            <tbody id="wild-steal-ranking"></tbody>
+        </table>
+
+    </div>
+
+
+    <div class="ranking-card">
+
+        <h4>勝利先発</h4>
+
+        <table>
+            <tbody id="wild-winningStarter-ranking"></tbody>
+        </table>
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+
+</main>
+
+
+<script src="js/teams.js"></script>
+<script src="js/matches.js"></script>
+<script src="js/playerStats.js"></script>
+<script src="js/playerStats-page.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>チーム詳細</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body class="team-page">
+
+<main>
+
+    <div class="team-detail">
+
+        <a href="javascript:history.back()" class="team-back-button">
+            ← 戻る
+        </a>
+
+    <div class="team-top">
+
+    <img id="teamLogo" class="team-logo-large">
+
+    <div class="team-info">
+
+        <h1 id="teamName"></h1>
+
+        <div id="teamLeague" class="league"></div>
+
+    </div>
+
+    </div>
+
+    <div class="team-profile">
+
+    <div class="profile-bar"></div>
+
+    <div class="profile-text">
+
+        <h3>チーム紹介</h3>
+        <p id="teamDescription"></p>
+
+        <h3>過去成績</h3>
+        <p id="teamHistory"></p>
+
+    </div>
+
+    </div>
+
+    <hr>
+
+    <h2>チーム成績</h2>
+
+    <table class="team-table">
+
+        <tr>
+            <th>順位</th>
+            <td id="rank"></td>
+        </tr>
+
+        <tr>
+            <th>成績</th>
+            <td id="record"></td>
+        </tr>
+
+        <tr>
+            <th>勝率</th>
+            <td id="rate"></td>
+        </tr>
+
+        <tr>
+            <th>得点</th>
+            <td id="scored"></td>
+        </tr>
+
+        <tr>
+            <th>失点</th>
+            <td id="allowed"></td>
+        </tr>
+
+        <tr>
+            <th>得失点差</th>
+            <td id="diff"></td>
+        </tr>
+
+    </table>
+
+    <h2>レギュラーシーズン</h2>
+
+    <div class="season-table-wrapper">
+        <div id="seasonTable"></div>
+    </div>
+    
+    <h2>監督一覧</h2>
+
+    <ul id="teamManagers" class="manager-list"></ul>
+
+</div>
+
+</main>
+
+<script src="js/teams.js"></script>
+<script src="js/matches.js"></script>
+<script src="js/standings.js"></script>
+<script src="js/team.js"></script>
+
+</body>
+
+</html>

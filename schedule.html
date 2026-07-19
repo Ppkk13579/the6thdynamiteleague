@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>試合日程</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>試合日程</h1>
+
+</header>
+
+    <nav>
+        <a href="index.html">ホーム</a>
+        <a href="schedule.html">日程</a>
+        <a href="standings.html">順位表</a>
+        <a href="teams.html">チーム</a>
+        <a href="player-stats.html">個人成績</a>
+        <a href="news.html">お知らせ</a>
+    </nav>
+
+<main>
+
+<div id="matchup-header" style="display:none;">
+    <h2 id="matchup-title"></h2>
+</div>    
+
+<div id="search-area">
+
+    <h2 class="filter-title">試合を検索</h2>
+
+    <div class="filter">
+
+        <label>
+            日付：
+            <select id="date-filter">
+                <option value="all">すべて</option>
+            </select>
+        </label>
+
+
+        <label>
+            リーグ：
+            <select id="league-filter">
+                <option value="all">すべて</option>
+                <option value="シティーリーグ">シティーリーグ</option>
+                <option value="ワイルドリーグ">ワイルドリーグ</option>
+                <option value="交流戦">交流戦</option>
+                <option value="オープン戦">オープン戦</option>
+            </select>
+        </label>
+
+    </div>
+
+
+</div>
+
+    <div class="container">
+       <div class="schedule-container">
+
+       <div id="match-list"></div>
+
+       </div>
+    </div>
+    
+</main>
+
+
+
+<script src="js/teams.js"></script>
+<script src="js/matches.js"></script>
+<script src="js/matchCard.js"></script>
+<script src="js/matchList.js"></script>
+
+
+<script>
+window.onload = () => {
+    console.log(document.getElementById("match-list").innerHTML);
+}
+</script>
+
+</body>
+
+</html>

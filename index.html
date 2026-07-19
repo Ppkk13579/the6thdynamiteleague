@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ダイナマイトリーグ速報</title>
+
+    <!-- CSSを読み込む -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- ===== ヘッダー ===== -->
+    <header>
+        <h1>第6期ダイナマイトリーグ</h1>
+        <p>公式大会サイト</p>
+    </header>
+
+    <!-- ===== ナビゲーション ===== -->
+    <nav>
+        <a href="index.html">ホーム</a>
+        <a href="schedule.html">日程</a>
+        <a href="standings.html">順位表</a>
+        <a href="teams.html">チーム</a>
+        <a href="player-stats.html">個人成績</a>
+        <a href="news.html">お知らせ</a>
+    </nav>
+
+    <!-- ===== メイン ===== -->
+    <main>
+    <div class="container">
+        <!-- お知らせ -->
+            <section>
+
+                <h2>お知らせ</h2>
+
+                <div id="top-news-list"></div>
+
+            </section>
+
+            <section class="postseason-preview allstar-preview">
+
+            <h2>オールスターゲーム</h2>
+
+                <div id="allstar-preview"></div>
+
+                <a href="allstar.html" class="detail-button">
+                    詳細を見る
+                </a>
+
+            </section>
+
+            <section class="postseason-preview ds-preview">
+
+            <h2>ダイナマイトシリーズ</h2>
+
+                <div id="ds-preview-list"></div>
+
+                <a href="postseason.html?stage=ダイナマイトシリーズ" class="detail-button">
+                    詳細を見る 
+                </a>
+
+            </section>
+
+            <section class="postseason-preview cs-preview">
+
+            <h2>CS</h2>
+
+                <div id="cs-preview-list"></div>
+
+                <a href="postseason.html?stage=CS" class="detail-button">
+                    詳細を見る 
+                </a>
+
+            </section>
+
+        <!-- 本日の試合 -->
+        <section id="today">
+
+            <h2>本日の試合</h2>
+
+            <div id="matchList"></div>
+
+        </section>
+
+        <!-- 順位表 -->
+        <section class="standings-preview">
+
+        <h2>順位表</h2>
+
+
+        <div class="standings-preview-container">
+
+
+        <div class="standings-card">
+ 
+        <h3>シティーリーグ</h3>
+
+        <table class="standings-table">
+
+            <thead>
+            <tr>
+                <th>順位</th>
+                <th>チーム</th>
+                <th>勝</th>
+                <th>敗</th>
+                <th>分</th>
+            </tr>
+            </thead>
+
+            <tbody id="Cityleague-top">
+            </tbody>
+
+        </table>
+
+        </div>
+
+
+
+
+        <div class="standings-card">
+
+        <h3>ワイルドリーグ</h3>
+
+        <table class="standings-table">
+
+            <thead>
+            <tr>
+                <th>順位</th>
+                <th>チーム</th>
+                <th>勝</th>
+                <th>敗</th>
+                <th>分</th>
+            </tr>
+            </thead>
+
+            <tbody id="Wildleague-top">
+            </tbody>
+
+        </table>
+
+
+        </div>
+
+        </div>
+
+        <a href="standings.html" class="detail-button">
+            詳細を見る
+        </a>
+
+
+        </section>
+
+        <section class="ranking-section">
+
+<h2>個人成績ランキング</h2>
+
+
+<h3>シティーリーグ</h3>
+
+<div class="ranking-container">
+
+
+    <div class="ranking-card">
+
+        <h4>本塁打</h4>
+
+        <table class="player-ranking-table">
+
+            <thead>
+                <tr>
+                    <th>順位</th>
+                    <th>選手</th>
+                    <th>成績</th>
+                </tr>
+            </thead>
+
+            <tbody id="city-homeRun">
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="ranking-card">
+
+        <h4>盗塁</h4>
+
+        <table class="player-ranking-table">
+
+            <thead>
+                <tr>
+                    <th>順位</th>
+                    <th>選手</th>
+                    <th>成績</th>
+                </tr>
+            </thead>
+
+            <tbody id="city-steal">
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="ranking-card">
+
+        <h4>勝利先発</h4>
+
+        <table class="player-ranking-table">
+
+            <thead>
+                <tr>
+                    <th>順位</th>
+                    <th>選手</th>
+                    <th>成績</th>
+                </tr>
+            </thead>
+
+            <tbody id="city-winningStarter">
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+</div>
+
+
+
+<h3>ワイルドリーグ</h3>
+
+<div class="ranking-container">
+
+
+    <div class="ranking-card">
+
+        <h4>本塁打</h4>
+
+        <table class="player-ranking-table">
+
+            <thead>
+                <tr>
+                    <th>順位</th>
+                    <th>選手</th>
+                    <th>成績</th>
+                </tr>
+            </thead>
+
+            <tbody id="wild-homeRun">
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="ranking-card">
+
+        <h4>盗塁</h4>
+
+        <table class="player-ranking-table">
+
+            <thead>
+                <tr>
+                    <th>順位</th>
+                    <th>選手</th>
+                    <th>成績</th>
+                </tr>
+            </thead>
+
+            <tbody id="wild-steal">
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="ranking-card">
+
+        <h4>勝利先発</h4>
+
+        <table class="player-ranking-table">
+
+            <thead>
+                <tr>
+                    <th>順位</th>
+                    <th>選手</th>
+                    <th>成績</th>
+                </tr>
+            </thead>
+
+            <tbody id="wild-winningStarter">
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+</div>
+
+
+
+<a href="player-stats.html" class="detail-button">
+    詳細を見る
+</a>
+
+
+</section>
+      
+    </div>
+
+    </main>
+
+    <!-- ===== フッター ===== -->
+    <footer>
+
+        <p>© ダイナマイトリーグ</p>
+
+    </footer>
+    
+    <script src="js/site-settings.js"></script>
+    <script src="js/teams.js"></script>
+    <script src="js/matches.js"></script>
+    <script src="js/postseasonData.js"></script>
+    <script src="js/cs-preview.js"></script>
+    <script src="js/ds-preview.js"></script>
+    <script src="js/allstar.js"></script>
+    <script src="js/allstar-preview.js"></script>
+    <script src="js/matchCard.js"></script>
+    <script src="js/postseason.js"></script>
+    <script src="js/standings.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/playerStats.js"></script>
+    <script src="js/playerStats-top.js"></script>
+    <script src="js/news.js"></script>
+    <script src="js/news-top.js"></script>
+</body>
+
+</html>

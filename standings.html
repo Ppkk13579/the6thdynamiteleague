@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>順位表 | ダイナマイトリーグ</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>順位表</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">ホーム</a>
+        <a href="schedule.html">日程</a>
+        <a href="standings.html">順位表</a>
+        <a href="teams.html">チーム</a>
+        <a href="player-stats.html">個人成績</a>
+        <a href="news.html">お知らせ</a>
+    </nav>
+
+<main class="standings-page">
+
+    <div class="container standings-container">
+
+        <div class="league-container">
+
+            <section>
+
+                <h2>シティーリーグ順位表</h2>
+
+                <div class="table-wrapper">
+
+                <table class="standings-table">
+
+                    <thead>
+                        <tr>
+                            <th>順位</th>
+                            <th>チーム</th>
+                            <th>試合</th>
+                            <th>勝</th>
+                            <th>敗</th>
+                            <th>分</th>
+                            <th>勝率</th>
+                            <th>勝差</th>                            
+                            <th>得点</th>
+                            <th>失点</th>
+                            <th>得失点</th>
+                            <th>本塁打</th>
+                            <th>盗塁</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="Cityleague-detail"></tbody>
+
+                </table>
+
+                </div>
+
+                <h2>シティーリーグ 対戦表</h2>
+                <div id="Cityleague-matchup"></div>
+
+
+            </section>
+
+            <section>
+
+                <h2>ワイルドリーグ順位表</h2>
+
+                <div class="table-wrapper">
+
+                <table class="standings-table">
+
+                    <thead>
+                        <tr>
+                            <th>順位</th>
+                            <th>チーム</th>
+                            <th>試合</th>
+                            <th>勝</th>
+                            <th>敗</th>
+                            <th>分</th>
+                            <th>勝率</th>
+                            <th>勝差</th>
+                            <th>得点</th>
+                            <th>失点</th>
+                            <th>得失点</th>
+                            <th>本塁打</th>
+                            <th>盗塁</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="Wildleague-detail"></tbody>
+
+                </table>
+
+                </div>
+
+                <h2>ワイルドリーグ 対戦表</h2>
+                <div id="Wildleague-matchup"></div>
+
+            </section>
+
+        </div>
+        
+        <section>
+        <h2>交流戦順位表</h2>
+
+        <div class="table-wrapper">
+
+        <table class="standings-table">
+
+        <thead>
+        <tr>
+            <th>順位</th>
+            <th>チーム</th>
+            <th>試合</th>
+            <th>勝</th>
+            <th>敗</th>
+            <th>分</th>
+            <th>勝率</th>
+            <th>勝差</th>
+        </tr>
+        </thead>
+
+        <tbody id="Interleague-detail"></tbody>
+
+        </table>
+        </div>
+        <h2>交流戦対戦表</h2>
+
+        <div class="interleague-wrapper">
+            <div id="interleague-matchup"></div>
+        </div>
+        </section>
+    
+        <section>
+        <h2>オープン戦順位表</h2>
+
+        <div class="table-wrapper">
+
+        <table class="standings-table">
+
+        <thead>
+        <tr>
+            <th>順位</th>
+            <th>チーム</th>
+            <th>試合</th>
+            <th>勝</th>
+            <th>敗</th>
+            <th>分</th>
+            <th>勝率</th>
+            <th>勝差</th>
+        </tr>
+        </thead>
+
+        <tbody id="Openleague-detail"></tbody>
+
+        </table>
+        </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<script src="js/teams.js"></script>
+<script src="js/matches.js"></script> 
+<script src="js/standings.js"></script>
+<script src="js/standings-script.js"></script>
+
+</body>
+</html>

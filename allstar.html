@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>オールスターゲーム</title>
+</head>
+
+<body class="match-page">
+
+<link rel="stylesheet" href="css/style.css">
+
+
+<div class="match-detail allstar-detail">
+
+
+    <a href="javascript:history.back()" class="match-back-button">
+        ← 戻る
+    </a>
+
+
+    <h1 id="allstarTitle">オールスターゲーム</h1>
+
+
+    <p id="allstarDate"></p>
+
+    <p id="allstarStadium"></p>
+
+    <div id="status" class="status"></div>
+
+
+
+    <!-- チーム情報 -->
+
+    <div class="allstar-preview-match">
+
+
+    <!-- シティー -->
+
+    <div class="allstar-team-box">
+
+
+        <img id="homeLogo" class="team-logo">
+
+
+        <h2 id="homeTeam"></h2>
+
+
+        <p>
+            監督：
+            <span id="homeManager"></span>
+        </p>
+
+
+        <h3>スタメン</h3>
+
+
+        <ul id="homeLineup"></ul>
+
+
+    </div>
+
+
+
+
+    <!-- スコア -->
+
+    <div class="allstar-score">
+
+        <span id="homeScore"></span>
+
+        -
+
+        <span id="awayScore"></span>
+
+    </div>
+
+
+
+
+
+    <!-- ワイルド -->
+
+    <div class="allstar-team-box">
+
+
+        <img id="awayLogo" class="team-logo">
+
+
+        <h2 id="awayTeam"></h2>
+
+
+        <p>
+            監督：
+            <span id="awayManager"></span>
+        </p>
+
+
+        <h3>スタメン</h3>
+
+
+        <ul id="awayLineup"></ul>
+
+
+    </div>
+
+
+    </div>
+
+
+
+
+    <!-- スコアボード -->
+
+    <h2>スコアボード</h2>
+
+
+    <table class="scoreboard allstar-scoreboard">
+
+    <thead id="scoreboardHead">
+    </thead>
+
+    <tbody id="allstarScoreboard">
+    </tbody>
+
+</table>
+
+
+
+
+    <hr>
+
+
+
+
+    <h2>試合結果</h2>
+
+
+
+    <div class="match-highlights">
+
+    <div class="highlight-box">
+
+        <h3>MVP</h3>
+
+        <p id="mvp"></p>
+
+    </div>
+
+
+
+    <div class="highlight-box">
+
+        <h3>本塁打</h3>
+
+
+        <div class="team-title">
+            <img id="homeRunsLogo" class="mini-logo">
+            <span id="homeRunsTitle"></span>
+        </div>
+
+        <ul id="homeRuns"></ul>
+
+
+        <div class="team-title">
+            <img id="awayRunsLogo" class="mini-logo">
+            <span id="awayRunsTitle"></span>
+        </div>
+
+        <ul id="awayRuns"></ul>
+
+
+    </div>
+
+
+
+
+    <div class="highlight-box">
+
+        <h3>盗塁</h3>
+
+
+        <div class="team-title">
+            <img id="homeStealsLogo" class="mini-logo">
+            <span id="homeStealsTitle"></span>
+        </div>
+
+        <ul id="homeSteals"></ul>
+
+
+        <div class="team-title">
+            <img id="awayStealsLogo" class="mini-logo">
+            <span id="awayStealsTitle"></span>
+        </div>
+
+        <ul id="awaySteals"></ul>
+
+
+    </div>
+
+
+</div>
+
+
+
+
+    <h3>投手</h3>
+
+
+    <p>
+        勝利投手：
+        <span id="winPitcher"></span>
+    </p>
+
+
+    <p>
+        敗戦投手：
+        <span id="losePitcher"></span>
+    </p>
+
+
+
+
+    <h3>バッテリー</h3>
+
+    <div class="team-title">
+        <img id="homeBatteryLogo" class="mini-logo">
+        <span id="homeBatteryTitle"></span>
+    </div>
+
+    <p id="homeBattery"></p>
+
+    <div class="team-title">
+        <img id="awayBatteryLogo" class="mini-logo">
+        <span id="awayBatteryTitle"></span>
+    </div>
+
+    <p id="awayBattery"></p>
+
+
+
+
+    <h2>得点経過</h2>
+
+
+    <div id="scoreEvents"></div>
+
+
+
+
+    <h2>試合経過</h2>
+
+
+    <div id="gameEvents"></div>
+
+
+
+
+
+</div>
+
+
+
+
+<script src="js/teams.js"></script>
+<script src="js/allstar.js"></script>
+<script src="js/allstar-detail.js"></script>
+
+
+</body>
+
+</html>

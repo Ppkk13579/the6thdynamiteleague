@@ -1,0 +1,94 @@
+<!DOCTYPE html> 
+<html lang="ja"> 
+    <head> <meta charset="UTF-8"> 
+        <title>試合詳細</title> 
+    </head> 
+    <body class="match-page"> 
+    <link rel="stylesheet" href="css/style.css">
+    <div class="match-detail">
+        
+         <a href="javascript:history.back()" class="match-back-button">
+            ← 戻る
+        </a>
+
+    <div id="league" class="league"></div> 
+
+    <h1 id="title"></h1> 
+    <p id="date"></p> 
+    <div class="teams"> 
+        <div class="team-box"> 
+            <img id="homeLogo" class="team-logo"> 
+            <div id="homeTeam" class="match-team-name"></div> 
+            <div id="homeManager" class="manager"></div> 
+            <div id="homeStarter" class="starter"></div> 
+            </div> <div class="score" id="score"></div> 
+            <div class="team-box"> 
+                <img id="awayLogo" class="team-logo"> 
+                <div id="awayTeam" class="match-team-name"></div> 
+                <div id="awayManager" class="manager"></div> 
+                <div id="awayStarter" class="starter"></div> 
+            </div> </div> 
+        <h2>スコアボード</h2> 
+        <table class="scoreboard"> 
+            <thead> <tr> <th>Team</th> <th>1</th> <th>2</th> <th>3</th> <th>R</th> <th>H</th> </tr> </thead> 
+            <tbody id="scoreboardBody"> </tbody> 
+        </table> 
+        <div class="status" id="status"></div> 
+        <hr> 
+            <div class="match-highlights">
+
+    <div class="highlight-box">
+        <h3>MVP</h3>
+        <p id="mvp"></p>
+    </div>
+
+
+    <div class="highlight-box">
+        <h3>本塁打</h3>
+
+        <div class="team-title">
+            <img id="homeRunsLogo" class="mini-logo">
+            <span id="homeRunsTitle"></span>
+        </div>
+
+        <ul id="homeRuns"></ul>
+
+
+        <div class="team-title">
+            <img id="awayRunsLogo" class="mini-logo">
+            <span id="awayRunsTitle"></span>
+        </div>
+
+        <ul id="awayRuns"></ul>
+
+    </div>
+
+
+    <div class="highlight-box">
+        <h3>盗塁</h3>
+
+        <div class="team-title">
+            <img id="homeStealsLogo" class="mini-logo">
+            <span id="homeStealsTitle"></span>
+        </div>
+
+        <ul id="homeSteals"></ul>
+
+
+        <div class="team-title">
+            <img id="awayStealsLogo" class="mini-logo">
+            <span id="awayStealsTitle"></span>
+        </div>
+
+        <ul id="awaySteals"></ul>
+
+    </div>
+
+</div>
+        
+        
+        <script src="js/teams.js"></script> 
+        <script src="js/matches.js"></script> 
+        <script src="js/match.js"></script> 
+    </body> 
+    </html>
