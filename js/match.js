@@ -21,7 +21,7 @@ let title = "";
     title = `${match.stage} 第${match.game}戦`;
 
     } else {
-    title = `${match.stage} 第${match.game}戦`;
+    title = `${match.stage} 第${match.set}セット 第${match.game}戦`;
     }
 
 function getHomeRunNumber(matchId, player){
