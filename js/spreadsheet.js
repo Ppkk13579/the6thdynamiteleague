@@ -52,8 +52,8 @@ fetch(sheetURL)
 
     });
 
-    window.matches = sheetMatches;
+    window.sheetTest = sheetMatches;
 
-    console.log(sheetMatches);
+　　console.log(sheetMatches);
 
 });
