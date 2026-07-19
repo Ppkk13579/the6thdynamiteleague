@@ -52,6 +52,7 @@ fetch(sheetURL)
 
     });
 
+    window.sheetMatches = sheetMatches;
 
     console.log(sheetMatches);
 
