@@ -238,8 +238,16 @@ if(series && series.advantage){
 
 const csSection = document.querySelector(".cs-preview");
 
-if(eventSettings.CS.visible){
-    createCSPreview();
-}else if(csSection){
-    csSection.style.display = "none";
-}
+window.addEventListener("matchesLoaded", () => {
+
+    if(eventSettings.CS.visible){
+
+        createCSPreview();
+
+    }else if(csSection){
+
+        csSection.style.display = "none";
+
+    }
+
+});
