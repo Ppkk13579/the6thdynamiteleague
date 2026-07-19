@@ -250,17 +250,124 @@ function calculateSpecialRanking(ranking, stage){
 const Interleague = createSpecialLeague();
 const Openleague = createSpecialLeague();
 
+window.addEventListener("matchesLoaded", () => {
 
-calculateSpecialRanking(
-    Interleague,
-    "交流戦"
-);
+matches.forEach(match => {
 
+    // 試合終了だけ集計
+    if (
+    match.stage !== "レギュラーシーズン" &&
+    match.stage !== "交流戦" 
+    ){
+    return;
+    }
+    
+    if (match.status !== "試合終了") {
+        return;
+    }
 
-calculateSpecialRanking(
-    Openleague,
-    "オープン戦"
-);
+    let targetTeams;
+
+    if(match.stage === "交流戦" || match.stage === "オープン戦"){
+
+    targetTeams = allTeams;
+
+    }else{
+
+    targetTeams = match.league === "シティーリーグ"
+        ? Cityleague
+        : Wildleague;
+
+    }
+
+    const homeTeam = targetTeams.find(
+        team => team.team === match.home
+    );
+
+    const awayTeam = targetTeams.find(
+        team => team.team === match.away
+    );
+
+    console.log(homeTeam);
+    console.log(awayTeam);
+
+    // 試合数
+    homeTeam.games++;
+    awayTeam.games++;
+
+    // 得点・失点
+    homeTeam.scored += match.homeScore;
+    homeTeam.allowed += match.awayScore;
+
+    awayTeam.scored += match.awayScore;
+    awayTeam.allowed += match.homeScore;
+
+    if (match.homeScore > match.awayScore) {
+
+    homeTeam.wins++;
+    awayTeam.losses++;
+
+    }
+    else if (match.homeScore < match.awayScore) {
+
+    awayTeam.wins++;
+    homeTeam.losses++;
+
+    }
+    else {
+
+    homeTeam.draws++;
+    awayTeam.draws++;
+
+    }
+
+    // 交流戦を除いたリーグ戦成績
+    if(match.stage !== "交流戦"){
+
+    if(match.homeScore > match.awayScore){
+
+        homeTeam.leagueWins++;
+
+    }
+    else if(match.homeScore < match.awayScore){
+
+        awayTeam.leagueWins++;
+
+    }
+
+    homeTeam.leagueGames++;
+    awayTeam.leagueGames++;
+
+}
+
+});
+
+        calculateStats(Cityleague);
+    calculateStats(Wildleague);
+
+    calculateSpecialRanking(Interleague, "交流戦");
+    calculateSpecialRanking(Openleague, "オープン戦");
+
+    sortLeague(Cityleague, matches);
+    sortLeague(Wildleague, matches);
+
+    setRank(Cityleague);
+    setRank(Wildleague);
+
+    calculateGameDiff(Cityleague);
+    calculateGameDiff(Wildleague);
+
+    createDetailTable(Cityleague, "Cityleague-detail");
+    createDetailTable(Wildleague, "Wildleague-detail");
+
+    createSimpleTable(Cityleague, "Cityleague-top");
+    createSimpleTable(Wildleague, "Wildleague-top");
+
+    createSpecialTable(Interleague, "Interleague-detail");
+    createSpecialTable(Openleague, "Openleague-detail");
+
+});
+
 
 function createSpecialTable(data, id){
 
@@ -411,95 +518,6 @@ function initializeLeague(league) {
 initializeLeague(Cityleague);
 initializeLeague(Wildleague);
 
-matches.forEach(match => {
-
-    // 試合終了だけ集計
-    if (
-    match.stage !== "レギュラーシーズン" &&
-    match.stage !== "交流戦" 
-    ){
-    return;
-    }
-    
-    if (match.status !== "試合終了") {
-        return;
-    }
-
-    let targetTeams;
-
-    if(match.stage === "交流戦" || match.stage === "オープン戦"){
-
-    targetTeams = allTeams;
-
-    }else{
-
-    targetTeams = match.league === "シティーリーグ"
-        ? Cityleague
-        : Wildleague;
-
-    }
-
-    const homeTeam = targetTeams.find(
-        team => team.team === match.home
-    );
-
-    const awayTeam = targetTeams.find(
-        team => team.team === match.away
-    );
-
-    console.log(homeTeam);
-    console.log(awayTeam);
-
-    // 試合数
-    homeTeam.games++;
-    awayTeam.games++;
-
-    // 得点・失点
-    homeTeam.scored += match.homeScore;
-    homeTeam.allowed += match.awayScore;
-
-    awayTeam.scored += match.awayScore;
-    awayTeam.allowed += match.homeScore;
-
-    if (match.homeScore > match.awayScore) {
-
-    homeTeam.wins++;
-    awayTeam.losses++;
-
-    }
-    else if (match.homeScore < match.awayScore) {
-
-    awayTeam.wins++;
-    homeTeam.losses++;
-
-    }
-    else {
-
-    homeTeam.draws++;
-    awayTeam.draws++;
-
-    }
-
-    // 交流戦を除いたリーグ戦成績
-    if(match.stage !== "交流戦"){
-
-    if(match.homeScore > match.awayScore){
-
-        homeTeam.leagueWins++;
-
-    }
-    else if(match.homeScore < match.awayScore){
-
-        awayTeam.leagueWins++;
-
-    }
-
-    homeTeam.leagueGames++;
-    awayTeam.leagueGames++;
-
-}
-
-});
 
 function calculateStats(league){
 
@@ -639,9 +657,6 @@ function getHeadToHead(teamA, teamB, matches){
 
 }
 
-sortLeague(Cityleague, matches);
-sortLeague(Wildleague, matches);
-
 function setRank(league){
 
     league.forEach((team, index) => {
@@ -651,9 +666,6 @@ function setRank(league){
     });
 
 }
-
-setRank(Cityleague);
-setRank(Wildleague);
 
 function calculateGameDiff(league){
 
@@ -679,9 +691,6 @@ function calculateGameDiff(league){
     });
 
 }
-
-calculateGameDiff(Cityleague);
-calculateGameDiff(Wildleague);
 
 function createSimpleTable(data, id){
 
@@ -762,12 +771,3 @@ function createDetailTable(data, id){
     });
 
 }
-
-createDetailTable(Cityleague,"Cityleague-detail");
-createDetailTable(Wildleague,"Wildleague-detail");
-
-createSimpleTable(Cityleague,"Cityleague-top");
-createSimpleTable(Wildleague,"Wildleague-top");
-
-createSpecialTable(Interleague,"Interleague-detail");
-createSpecialTable(Openleague,"Openleague-detail");
