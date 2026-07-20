@@ -10,8 +10,17 @@ let sheetEvents = [];
 
 // まず events を読む
 fetch(eventsURL)
-.then(res => res.text())
+.then(res => {
+    console.log("fetch開始", res.status);
+    return res.text();
+})
 .then(data => {
+
+    console.log("取得したデータ", data);
+
+    const json = JSON.parse(
+        data.substring(47).slice(0,-2)
+    );
 
     const json = JSON.parse(
         data.substring(47).slice(0,-2)
