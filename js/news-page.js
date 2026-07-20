@@ -8,12 +8,14 @@ function formatDate(date){
 
 const newsList = document.getElementById("news-list");
 
+console.log("news-page読み込み");
 
 window.addEventListener("newsLoaded",()=>{
 
+    console.log("newsLoaded受信");
+    console.log(window.news);
 
     newsList.innerHTML = "";
-
 
     window.news.forEach(item => {
 
