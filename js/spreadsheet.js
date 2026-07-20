@@ -195,6 +195,3 @@ fetch(eventSheetURL)
     window.dispatchEvent(new Event("matchesLoaded"));
 
 });
-
-
-});
