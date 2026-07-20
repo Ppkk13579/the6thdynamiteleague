@@ -95,7 +95,8 @@ fetch(eventSheetURL)
         };
 
     });
-
+    
+/*
     // events を各試合に合体
     sheetMatches.forEach(match => {
 
@@ -107,6 +108,7 @@ fetch(eventSheetURL)
     "match", match.id,
     "events", matchEvents
 );
+
 
         match.homeRuns = matchEvents.filter(
             e => e.team === match.home && e.eventType === "homeRun"
@@ -125,11 +127,50 @@ fetch(eventSheetURL)
         );
 
     });
+*/
 
+        // 3枚目のinningsシートを読む
+    return fetch(inningSheetURL);
+
+})
+.then(res => res.text())
+.then(data => {
+
+    const json = JSON.parse(
+        data.substring(47).slice(0,-2)
+    );
+
+    console.log("innings raw", json);
+
+    const rows = json.table.rows;
+
+    sheetInnings = rows.map(row => {
+
+        const c = row.c;
+
+        return {
+            id: c[0]?.v,
+            team: c[1]?.v,
+
+            innings: [
+                c[2]?.v ?? 0,
+                c[3]?.v ?? 0,
+                c[4]?.v ?? 0
+            ],
+
+            hits: c[5]?.v ?? 0
+        };
+
+    });
+
+    console.log("innings読み込みOK", sheetInnings);
     window.matches = sheetMatches;
 
     console.log("matches読み込みOK", sheetMatches);
 
     window.dispatchEvent(new Event("matchesLoaded"));
+
+});
+
 
 });
