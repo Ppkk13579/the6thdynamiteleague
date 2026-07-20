@@ -162,10 +162,9 @@ fetch(eventSheetURL)
             id: c[0]?.v,
             team: c[1]?.v,
 
-           innings: [
-    c[2]?.v ?? "",
-    c[3]?.v ?? "",
-    c[4]?.v ?? ""
+    String(c[2]?.v ?? c[2]?.f ?? ""),
+String(c[3]?.v ?? c[3]?.f ?? ""),
+String(c[4]?.v ?? c[4]?.f ?? "")
 ],
 
             hits: c[5]?.v ?? 0
