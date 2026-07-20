@@ -66,8 +66,6 @@ fetch(eventSheetURL)
 
         const c = row.c;
 
-        document.body.innerHTML += `
-
         return {
             id: c[0].v,
             stage: c[1].v,
