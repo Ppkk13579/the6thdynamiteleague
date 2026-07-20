@@ -8,13 +8,10 @@ const eventSheetURL =
 "https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&gid=1189417424";
 const inningSheetURL =
 "https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&gid=223940296";
-const newsSheetURL =
-"https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&gid=1879735513";
 
 let sheetMatches = [];
 let sheetEvents = [];
 let sheetInnings = [];
-let sheetNews = [];
 
 console.log("fetch直前");
 
@@ -256,44 +253,6 @@ fetch(eventSheetURL)
     sheetMatches[0].homeSteals,
     sheetMatches[0].awaySteals
 );
-
-    fetch(newsSheetURL)
-.then(res => res.text())
-.then(data => {
-
-    const json = JSON.parse(
-        data.substring(47).slice(0,-2)
-    );
-
-    const rows = json.table.rows;
-
-    sheetNews = rows.map(row => {
-
-        const c = row.c;
-
-        return {
-            id: c[0]?.v,
-            date: c[1]?.v,
-            title: c[2]?.v,
-            text: c[3]?.v
-        };
-
-    });
-
-
-    sheetNews.sort(
-        (a,b)=>new Date(b.date)-new Date(a.date)
-    );
-
-
-    window.news = sheetNews;
-
-    console.log("news読み込みOK", sheetNews);
-
-
-    window.dispatchEvent(new Event("newsLoaded"));
-
-});
 
 });
 
