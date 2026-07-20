@@ -165,8 +165,18 @@ fetch(eventSheetURL)
 
     console.log("innings読み込みOK", sheetInnings);
 
+    console.log(
+    "innings ID確認",
+    sheetInnings.map(i => i.id)
+);
+
     sheetMatches.forEach(match => {
 
+    console.log(
+    "比較",
+    match.id,
+    sheetInnings.filter(i => Number(i.id) === Number(match.id))
+);
     const matchEvents = sheetEvents.filter(
         e => Number(e.id) === Number(match.id)
     );
