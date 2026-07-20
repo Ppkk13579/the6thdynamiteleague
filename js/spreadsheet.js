@@ -253,6 +253,7 @@ fetch(eventSheetURL)
     sheetMatches[0].homeSteals,
     sheetMatches[0].awaySteals
 );
+    window.dispatchEvent(new Event("matchesLoaded"));
 
 });
 
