@@ -30,8 +30,8 @@ fetch(eventsURL)
         return {
             matchId: c[0]?.v,
             team: c[1]?.v,
-            eventType: c[2]?.v,
-            player: c[3]?.v
+            player: c[2]?.v,
+            eventType: c[3]?.v
         };
 
     });
