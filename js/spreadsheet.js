@@ -58,6 +58,8 @@ fetch(eventsURL)
         data.substring(47).slice(0,-2)
     );
 
+    console.log("matches raw", json);
+
     const rows = json.table.rows;
 
     sheetMatches = rows.map(row => {
