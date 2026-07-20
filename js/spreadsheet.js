@@ -1,5 +1,7 @@
 console.log("spreadsheet.js 読み込みOK");
 
+console.log("URL設定前");
+
 const sheetURL =
 "https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&sheet=matches";
 const eventSheetURL =
@@ -7,6 +9,8 @@ const eventSheetURL =
 
 let sheetMatches = [];
 let sheetEvents = [];
+
+console.log("fetch直前");
 
 // まず events を読む
 fetch(eventSheetURL)
