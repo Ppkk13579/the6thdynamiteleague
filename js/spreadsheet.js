@@ -89,7 +89,7 @@ fetch(eventsURL)
     sheetMatches.forEach(match => {
 
         const matchEvents = sheetEvents.filter(
-            e => e.matchId === match.id
+            e => Number(e.matchId) === Number(match.id)
         );
 
         match.homeRuns = matchEvents.filter(
