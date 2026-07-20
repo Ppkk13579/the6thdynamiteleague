@@ -28,7 +28,7 @@ fetch(eventsURL)
         const c = row.c;
 
         return {
-            matchId: c[0]?.v,
+            Id: c[0]?.v,
             team: c[1]?.v,
             player: c[2]?.v,
             eventType: c[3]?.v
@@ -89,7 +89,7 @@ fetch(eventsURL)
     sheetMatches.forEach(match => {
 
         const matchEvents = sheetEvents.filter(
-            e => Number(e.matchId) === Number(match.id)
+            e => Number(e.Id) === Number(match.id)
         );
 
         console.log(
