@@ -8,6 +8,10 @@ window.addEventListener("matchesLoaded", () => {
 
     const match = matches.find(match => Number(match.id) === matchId);
 
+    console.log("選択した試合", match);
+console.log("本塁打", match.homeRuns, match.awayRuns);
+console.log("盗塁", match.homeSteals, match.awaySteals);
+
 if(!match){
     console.log("試合が見つかりません", matchId);
     return;
