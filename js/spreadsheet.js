@@ -11,6 +11,7 @@ const inningSheetURL =
 
 let sheetMatches = [];
 let sheetEvents = [];
+let sheetInnings = [];
 
 console.log("fetch直前");
 
