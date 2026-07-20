@@ -1,5 +1,4 @@
 console.log("spreadsheet.js 読み込みOK");
-console.log("② URL設定前");
 
 const sheetURL =
 "https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&sheet=matches";
@@ -9,9 +8,6 @@ const eventsURL =
 let sheetMatches = [];
 let sheetEvents = [];
 
-console.log("③ 変数設定完了");
-
-console.log("④ fetch直前");
 // まず events を読む
 fetch(eventsURL)
 .then(res => {
@@ -37,7 +33,7 @@ fetch(eventsURL)
         const c = row.c;
 
         return {
-            Id: c[0]?.v,
+            id: c[0]?.v,
             team: c[1]?.v,
             player: c[2]?.v,
             eventType: c[3]?.v
