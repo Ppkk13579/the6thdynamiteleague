@@ -43,3 +43,11 @@ window.addEventListener("newsLoaded",()=>{
 
 
 });
+
+console.log("news-page.js読み込みOK");
+
+window.addEventListener("newsLoaded",()=>{
+
+    console.log("newsLoaded受信");
+
+});
