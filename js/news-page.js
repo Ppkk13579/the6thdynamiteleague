@@ -6,30 +6,40 @@ function formatDate(date){
 
 }
 
-
 const newsList = document.getElementById("news-list");
 
 
-news.forEach(item => {
+window.addEventListener("newsLoaded",()=>{
 
-    newsList.innerHTML += `
 
-    <article class="news-item">
+    newsList.innerHTML = "";
 
-        <div class="date">
-            ${formatDate(item.date)}
-        </div>
 
-        <h3>
-            ${item.title}
-        </h3>
+    window.news.forEach(item => {
 
-        <p>
-            ${item.text}
-        </p>
 
-    </article>
+        newsList.innerHTML += `
 
-    `;
+        <article class="news-item">
+
+            <div class="date">
+                ${formatDate(item.date)}
+            </div>
+
+            <h3>
+                ${item.title}
+            </h3>
+
+            <p>
+                ${item.text}
+            </p>
+
+        </article>
+
+        `;
+
+
+    });
+
 
 });
