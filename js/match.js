@@ -1,10 +1,14 @@
-const params = new URLSearchParams(window.location.search);
+window.addEventListener("matchesLoaded", () => {
 
-const matchId = Number(params.get("id"));
+    const params = new URLSearchParams(window.location.search);
 
-console.log(matchId);
+    const matchId = Number(params.get("id"));
 
-const match = matches.find(match => match.id === matchId);
+    console.log(matchId);
+
+    const match = matches.find(match => match.id === matchId);
+
+    console.log(match);
 
 let title = "";
 
@@ -254,3 +258,4 @@ if(match.awaySteals.length === 0){
         awayStealsList.innerHTML += `<li>${steal.player}</li>`;
     });
 }
+});
