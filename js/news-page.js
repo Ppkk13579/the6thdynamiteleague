@@ -6,50 +6,30 @@ function formatDate(date){
 
 }
 
+
 const newsList = document.getElementById("news-list");
 
-console.log("news-page読み込み");
 
-window.addEventListener("newsLoaded",()=>{
+news.forEach(item => {
 
-    console.log("newsLoaded受信");
-    console.log(window.news);
+    newsList.innerHTML += `
 
-    newsList.innerHTML = "";
+    <article class="news-item">
 
-    window.news.forEach(item => {
+        <div class="date">
+            ${formatDate(item.date)}
+        </div>
 
+        <h3>
+            ${item.title}
+        </h3>
 
-        newsList.innerHTML += `
+        <p>
+            ${item.text}
+        </p>
 
-        <article class="news-item">
+    </article>
 
-            <div class="date">
-                ${formatDate(item.date)}
-            </div>
-
-            <h3>
-                ${item.title}
-            </h3>
-
-            <p>
-                ${item.text}
-            </p>
-
-        </article>
-
-        `;
-
-
-    });
-
-
-});
-
-console.log("news-page.js読み込みOK");
-
-window.addEventListener("newsLoaded",()=>{
-
-    console.log("newsLoaded受信");
+    `;
 
 });
