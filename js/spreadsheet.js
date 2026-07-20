@@ -30,7 +30,7 @@ fetch(eventsURL)
         return {
             matchId: c[0]?.v,
             team: c[1]?.v,
-            type: c[2]?.v,
+            eventType: c[2]?.v,
             player: c[3]?.v
         };
 
@@ -93,19 +93,19 @@ fetch(eventsURL)
         );
 
         match.homeRuns = matchEvents.filter(
-            e => e.team === match.home && e.type === "homeRun"
+            e => e.team === match.home && e.evntType === "homeRun"
         );
 
         match.awayRuns = matchEvents.filter(
-            e => e.team === match.away && e.type === "homeRun"
+            e => e.team === match.away && e.eventType === "homeRun"
         );
 
         match.homeSteals = matchEvents.filter(
-            e => e.team === match.home && e.type === "steal"
+            e => e.team === match.home && e.eventType === "steal"
         );
 
         match.awaySteals = matchEvents.filter(
-            e => e.team === match.away && e.type === "steal"
+            e => e.team === match.away && e.eventType === "steal"
         );
 
     });
