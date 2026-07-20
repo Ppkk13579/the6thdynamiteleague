@@ -189,6 +189,8 @@ fetch(eventSheetURL)
 
 });
 
+    console.log("ID一覧", sheetMatches.map(m => m.id));
+    
     window.matches = sheetMatches;
     console.log("matches読み込みOK", sheetMatches);
 
