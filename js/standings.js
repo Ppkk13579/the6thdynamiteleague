@@ -430,7 +430,7 @@ function getTeamHomeRuns(teamName){
 
     let total = 0;
 
-    matches.forEach(match => {
+    (window.matches || []).forEach(match => {
 
         // レギュラーシーズン・交流戦だけ集計
         if(
@@ -445,11 +445,11 @@ function getTeamHomeRuns(teamName){
         }
 
         if(match.home === teamName){
-            total += match.homeRuns.length;
+            total += (match.homeRuns || []).length;
         }
 
         if(match.away === teamName){
-            total += match.awayRuns.length;
+            total += (match.awayRuns || []).length;
         }
 
     });
@@ -462,7 +462,7 @@ function getTeamSteals(teamName){
 
     let total = 0;
 
-    matches.forEach(match => {
+    (window.matches || []).forEach(match => {
 
         // レギュラーシーズン・交流戦のみ集計
         if(
