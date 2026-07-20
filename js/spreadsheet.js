@@ -148,6 +148,8 @@ fetch(eventSheetURL)
 
         const c = row.c;
 
+        console.log("inning row", c);
+
         return {
             id: c[0]?.v,
             team: c[1]?.v,
