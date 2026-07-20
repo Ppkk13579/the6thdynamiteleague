@@ -2,12 +2,18 @@ console.log("spreadsheet.js 読み込みOK");
 
 const sheetURL =
 "https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&sheet=matches";
+const eventsURL =
+"https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&sheet=events";
 
 
 let sheetMatches = [];
 
 
-fetch(sheetURL)
+let sheetMatches = [];
+let sheetEvents = [];
+
+// まず events を読む
+fetch(eventsURL)
 .then(res => res.text())
 .then(data => {
 
@@ -17,6 +23,33 @@ fetch(sheetURL)
 
     const rows = json.table.rows;
 
+    sheetEvents = rows.map(row => {
+
+        const c = row.c;
+
+        return {
+            matchId: c[0]?.v,
+            team: c[1]?.v,
+            type: c[2]?.v,
+            player: c[3]?.v
+        };
+
+    });
+
+    console.log("events読み込みOK", sheetEvents);
+
+    // 次に matches を読む
+    return fetch(sheetURL);
+
+})
+.then(res => res.text())
+.then(data => {
+
+    const json = JSON.parse(
+        data.substring(47).slice(0,-2)
+    );
+
+    const rows = json.table.rows;
 
     sheetMatches = rows.map(row => {
 
@@ -52,11 +85,35 @@ fetch(sheetURL)
 
     });
 
+    // events を各試合に合体
+    sheetMatches.forEach(match => {
+
+        const matchEvents = sheetEvents.filter(
+            e => e.matchId === match.id
+        );
+
+        match.homeRuns = matchEvents.filter(
+            e => e.team === match.home && e.type === "homeRun"
+        );
+
+        match.awayRuns = matchEvents.filter(
+            e => e.team === match.away && e.type === "homeRun"
+        );
+
+        match.homeSteals = matchEvents.filter(
+            e => e.team === match.home && e.type === "steal"
+        );
+
+        match.awaySteals = matchEvents.filter(
+            e => e.team === match.away && e.type === "steal"
+        );
+
+    });
+
     window.matches = sheetMatches;
 
-    console.log(sheetMatches);
+    console.log("matches読み込みOK", sheetMatches);
 
-    window.dispatchEvent(
-    new Event("matchesLoaded")
-);
+    window.dispatchEvent(new Event("matchesLoaded"));
+
 });
