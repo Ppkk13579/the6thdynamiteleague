@@ -92,6 +92,11 @@ fetch(eventsURL)
             e => Number(e.matchId) === Number(match.id)
         );
 
+        console.log(
+    "match", match.id,
+    "events", matchEvents
+);
+
         match.homeRuns = matchEvents.filter(
             e => e.team === match.home && e.eventType === "homeRun"
         );
