@@ -150,6 +150,14 @@ fetch(eventSheetURL)
 
         console.log("inning row", c);
 
+        console.log(
+    "3回目の値確認",
+    c[4],
+    c[4]?.v,
+    c[4]?.f,
+    typeof c[4]?.v
+);
+
         return {
             id: c[0]?.v,
             team: c[1]?.v,
