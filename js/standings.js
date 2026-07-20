@@ -252,7 +252,7 @@ const Openleague = createSpecialLeague();
 
 window.addEventListener("matchesLoaded", () => {
 
-matchData.forEach(match => {
+matchesData.forEach(match => {
 
     // 試合終了だけ集計
     if (
