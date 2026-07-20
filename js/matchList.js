@@ -204,7 +204,7 @@ function createDateOptions(){
 
 }
 
-
+window.addEventListener("matchesLoaded", () => {
 
 createDateOptions();
 
@@ -256,3 +256,5 @@ if (
     sessionStorage.removeItem("scheduleScroll");
 
 }
+
+});
