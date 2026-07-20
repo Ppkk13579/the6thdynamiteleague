@@ -1,3 +1,5 @@
+window.addEventListener("matchesLoaded",()=>{
+    
 console.log("詳細ページJS実行");
 console.log(getHomeRunRanking("シティーリーグ"));
 
@@ -71,6 +73,10 @@ createRankingTable(
     getWinningStarterRanking("ワイルドリーグ"),
     "勝"
 );
+
+    displayRanking();
+
+});
 
 function displayRanking(){
 
