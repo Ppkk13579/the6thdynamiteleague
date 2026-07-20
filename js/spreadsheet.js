@@ -93,7 +93,7 @@ fetch(eventsURL)
         );
 
         match.homeRuns = matchEvents.filter(
-            e => e.team === match.home && e.evntType === "homeRun"
+            e => e.team === match.home && e.eventType === "homeRun"
         );
 
         match.awayRuns = matchEvents.filter(
