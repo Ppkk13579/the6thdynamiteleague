@@ -81,8 +81,8 @@ fetch(eventSheetURL)
             home: c[8].v,
             away: c[9].v,
 
-            homeScore: c[10].v,
-            awayScore: c[11].v,
+            homeScore: c[10]?.v ?? "",
+            awayScore: c[11]?.v ?? "",
 
             status: c[12].v,
             mvp: c[13]?.v ?? "",
