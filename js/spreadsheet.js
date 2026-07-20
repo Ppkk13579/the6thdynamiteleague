@@ -2,14 +2,14 @@ console.log("spreadsheet.js 読み込みOK");
 
 const sheetURL =
 "https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&sheet=matches";
-const eventsURL =
-"https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&sheet=events";
+const eventSheetURL =
+"https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&gid=1189417424";
 
 let sheetMatches = [];
 let sheetEvents = [];
 
 // まず events を読む
-fetch(eventsURL)
+fetch(eventSheetURL)
 .then(res => {
     console.log("fetch開始", res.status);
     return res.text();
@@ -22,9 +22,6 @@ fetch(eventsURL)
         data.substring(47).slice(0,-2)
     );
 
-    const json = JSON.parse(
-        data.substring(47).slice(0,-2)
-    );
 
     const rows = json.table.rows;
 
@@ -96,7 +93,7 @@ fetch(eventsURL)
     sheetMatches.forEach(match => {
 
         const matchEvents = sheetEvents.filter(
-            e => Number(e.Id) === Number(match.id)
+            e => Number(e.id) === Number(match.id)
         );
 
         console.log(
