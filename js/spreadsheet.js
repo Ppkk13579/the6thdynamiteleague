@@ -5,10 +5,6 @@ const sheetURL =
 const eventsURL =
 "https://docs.google.com/spreadsheets/d/1nv3A-VtvRjM_UiAIIt7NdgQxzUb88PtPM9MIuUX24hg/gviz/tq?tqx=out:json&sheet=events";
 
-
-let sheetMatches = [];
-
-
 let sheetMatches = [];
 let sheetEvents = [];
 
