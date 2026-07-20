@@ -194,6 +194,14 @@ fetch(eventSheetURL)
     window.matches = sheetMatches;
     console.log("matches読み込みOK", sheetMatches);
 
+    console.log(
+    "1試合目イベント確認",
+    sheetMatches[0].homeRuns,
+    sheetMatches[0].awayRuns,
+    sheetMatches[0].homeSteals,
+    sheetMatches[0].awaySteals
+);
+
     window.dispatchEvent(new Event("matchesLoaded"));
 
 });
