@@ -153,9 +153,9 @@ fetch(eventSheetURL)
             team: c[1]?.v,
 
             innings: [
-                c[2]?.v ?? 0,
-                c[3]?.v ?? 0,
-                c[4]?.v ?? 0
+            c[2]?.v ?? "",
+            c[3]?.v ?? "",
+            c[4]?.v ?? ""
             ],
 
             hits: c[5]?.v ?? 0
