@@ -50,6 +50,17 @@ function createMatchList(matches, id){
 
     });
 
+    // 各日の試合を時間順に並び替え
+for (const date in groupedMatches) {
+
+    groupedMatches[date].sort((a,b)=>{
+
+        return a.time.localeCompare(b.time);
+
+    });
+
+}
+
 
     // 日付ごとに表示
 for (const date in groupedMatches) {
