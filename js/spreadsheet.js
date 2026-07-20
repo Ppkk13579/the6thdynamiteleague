@@ -8,8 +8,6 @@ const eventSheetURL =
 let sheetMatches = [];
 let sheetEvents = [];
 
-console.log("イベント取得開始");
-
 // まず events を読む
 fetch(eventSheetURL)
 .then(res => {
