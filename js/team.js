@@ -250,4 +250,8 @@ function createSeasonTable() {
 
 }
 
-createSeasonTable();
+window.addEventListener("matchesLoaded", () => {
+
+    createSeasonTable();
+
+});
