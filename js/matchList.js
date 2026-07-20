@@ -63,7 +63,10 @@ for (const date in groupedMatches) {
 
 
     // 日付ごとに表示
-for (const date in groupedMatches) {
+// 日付順に表示
+const sortedDates = Object.keys(groupedMatches).sort();
+
+for (const date of sortedDates) {
 
     list.innerHTML += `<h3 class="schedule-date">${date}</h3>`;
 
@@ -88,6 +91,18 @@ for (const date in groupedMatches) {
         match.stage === "交流戦" ||
         match.stage === "オープン戦"
     );
+
+    cityMatches.sort((a,b)=>
+    a.time.localeCompare(b.time)
+);
+
+wildMatches.sort((a,b)=>
+    a.time.localeCompare(b.time)
+);
+
+specialMatches.sort((a,b)=>
+    a.time.localeCompare(b.time)
+);
 
     // シティーリーグ
     if (cityMatches.length > 0) {
