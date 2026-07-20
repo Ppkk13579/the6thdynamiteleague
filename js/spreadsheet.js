@@ -67,13 +67,6 @@ fetch(eventSheetURL)
         const c = row.c;
 
         document.body.innerHTML += `
-<p>
-3回目確認：
-${c[4]?.f ?? "fなし"}
- / 
-${c[4]?.v ?? "vなし"}
-</p>
-`;
 
         return {
             id: c[0].v,
