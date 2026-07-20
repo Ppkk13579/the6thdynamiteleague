@@ -245,18 +245,21 @@ html += `
 
 }
 
+window.addEventListener("matchesLoaded", () => {
 
-createMatchupTable(Cityleague,"Cityleague-matchup");
-createMatchupTable(Wildleague,"Wildleague-matchup");
+    createMatchupTable(Cityleague,"Cityleague-matchup");
 
-const Allleague = [
-    ...Cityleague,
-    ...Wildleague
-];
+    createMatchupTable(Wildleague,"Wildleague-matchup");
 
-createMatchupTable(
-    Allleague,
-    "interleague-matchup",
-    "interleague"
-);
+    const Allleague = [
+        ...Cityleague,
+        ...Wildleague
+    ];
 
+    createMatchupTable(
+        Allleague,
+        "interleague-matchup",
+        "interleague"
+    );
+
+});
