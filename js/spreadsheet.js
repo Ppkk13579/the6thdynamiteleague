@@ -187,6 +187,30 @@ fetch(eventSheetURL)
         e => e.team === match.away && e.eventType === "steal"
     );
 
+        const matchInnings = sheetInnings.filter(
+        inning => Number(inning.id) === Number(match.id)
+    );
+
+
+    const homeInning = matchInnings.find(
+        inning => inning.team === match.home
+    );
+
+    const awayInning = matchInnings.find(
+        inning => inning.team === match.away
+    );
+
+
+    match.innings = {
+        home: homeInning ? homeInning.innings : [0,0,0],
+        away: awayInning ? awayInning.innings : [0,0,0]
+    };
+
+
+    match.hits = {
+        home: homeInning ? homeInning.hits : 0,
+        away: awayInning ? awayInning.hits : 0
+    };
 });
 
     console.log("ID一覧", sheetMatches.map(m => m.id));
@@ -194,6 +218,12 @@ fetch(eventSheetURL)
     window.matches = sheetMatches;
     console.log("matches読み込みOK", sheetMatches);
 
+    console.log(
+    "試合データ確認",
+    sheetMatches[0].innings,
+    sheetMatches[0].hits
+);
+    
     console.log(
     "1試合目イベント確認",
     sheetMatches[0].homeRuns,
