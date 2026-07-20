@@ -218,6 +218,8 @@ fetch(eventSheetURL)
         away: awayInning ? awayInning.innings : [0,0,0]
     };
 
+    console.log("完成したinnings", match.id, match.innings);
+
 
     match.hits = {
         home: homeInning ? homeInning.hits : 0,
