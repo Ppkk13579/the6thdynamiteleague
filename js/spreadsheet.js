@@ -164,8 +164,32 @@ fetch(eventSheetURL)
     });
 
     console.log("innings読み込みOK", sheetInnings);
-    window.matches = sheetMatches;
 
+    sheetMatches.forEach(match => {
+
+    const matchEvents = sheetEvents.filter(
+        e => Number(e.id) === Number(match.id)
+    );
+
+    match.homeRuns = matchEvents.filter(
+        e => e.team === match.home && e.eventType === "homeRun"
+    );
+
+    match.awayRuns = matchEvents.filter(
+        e => e.team === match.away && e.eventType === "homeRun"
+    );
+
+    match.homeSteals = matchEvents.filter(
+        e => e.team === match.home && e.eventType === "steal"
+    );
+
+    match.awaySteals = matchEvents.filter(
+        e => e.team === match.away && e.eventType === "steal"
+    );
+
+});
+
+    window.matches = sheetMatches;
     console.log("matches読み込みOK", sheetMatches);
 
     window.dispatchEvent(new Event("matchesLoaded"));
