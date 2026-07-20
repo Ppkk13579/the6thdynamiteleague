@@ -6,7 +6,12 @@ window.addEventListener("matchesLoaded", () => {
 
     console.log(matchId);
 
-    const match = matches.find(match => match.id === matchId);
+    const match = matches.find(match => Number(match.id) === matchId);
+
+if(!match){
+    console.log("試合が見つかりません", matchId);
+    return;
+}
 
     console.log(match);
 
