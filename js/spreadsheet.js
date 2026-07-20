@@ -297,10 +297,3 @@ fetch(eventSheetURL)
 
 });
 
-console.log("最後まで到達");
-
-window.news = sheetNews;
-
-console.log(window.news);
-
-window.dispatchEvent(new Event("newsLoaded"));
