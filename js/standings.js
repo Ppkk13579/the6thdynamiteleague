@@ -526,22 +526,28 @@ function calculateStats(league){
         // 得失点差
         team.diff = team.scored - team.allowed;
 
-        // 勝率
-        if(team.games > 0){
-            team.rate = (team.wins / team.games).toFixed(3);
+        // 勝率（引き分けを除外）
+        const decisionGames = team.wins + team.losses;
+
+        if(decisionGames > 0){
+            team.rate = (team.wins / decisionGames).toFixed(3);
         }else{
             team.rate = "0.000";
         }
 
-        if(team.leagueGames > 0){
+        // リーグ内勝率（引き分けを除外）
+        const leagueDecisionGames =
+            team.leagueWins + team.leagueLosses;
 
-        team.leagueRate =
-        Number((team.leagueWins / team.leagueGames).toFixed(3));
+        if(leagueDecisionGames > 0){
+
+            team.leagueRate =
+            Number((team.leagueWins / leagueDecisionGames).toFixed(3));
 
         }
         else{
 
-        team.leagueRate = 0;
+            team.leagueRate = 0;
 
         }
 
