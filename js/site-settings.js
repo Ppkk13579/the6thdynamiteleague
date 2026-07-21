@@ -2,13 +2,13 @@ const eventSettings = {
 
     CS: {
         name: "CS",
-        visible: true,
+        visible: false,
         link: "postseason.html?stage=CS"
     },
 
     DS: {
         name: "ダイナマイトシリーズ",
-        visible: true,
+        visible: false,
         link: "postseason.html?stage=ダイナマイトシリーズ"
     },
 
