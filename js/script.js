@@ -83,3 +83,14 @@ function createEventPreview(){
 }
 
 createEventPreview();
+
+const csSection = document.querySelector(".cs-preview");
+const dsSection = document.querySelector(".ds-preview");
+
+if(csSection && eventSettings.CS.visible){
+    csSection.style.display = "block";
+}
+
+if(dsSection && eventSettings.DS.visible){
+    dsSection.style.display = "block";
+}
