@@ -181,41 +181,49 @@ const showHomeRunNumber =
     match.stage === "交流戦";
 
 
-if(match.homeRuns.length === 0){
+if(match.status === "試合前"){
 
+    // 試合前は空白
+    homeRunsList.innerHTML = "";
+
+}else if(match.homeRuns.length === 0){
+
+    // 試合終了後、本塁打がなければ「なし」
     homeRunsList.innerHTML = "<li>なし</li>";
 
 }else{
 
     match.homeRuns.forEach((run,index)=>{
 
-    const samePlayerCount =
-        match.homeRuns
-        .slice(0,index)
-        .filter(r=>r.player === run.player)
-        .length;
+        const samePlayerCount =
+            match.homeRuns
+            .slice(0,index)
+            .filter(r=>r.player === run.player)
+            .length;
 
+        const number =
+        showHomeRunNumber
+        ? getHomeRunNumber(match.id, run.player) - samePlayerCount
+        : null;
 
-    const number =
-    showHomeRunNumber
-    ? getHomeRunNumber(match.id, run.player) - samePlayerCount
-    : null;
+        homeRunsList.innerHTML += `
+            <li>
+                ${run.player}
+                ${number ? `${number}号` : ""}
+            </li>
+        `;
 
-
-    homeRunsList.innerHTML += `
-        <li>
-            ${run.player}
-            ${number ? `${number}号` : ""}
-        </li>
-    `;
-
-});
+    });
 
 }
 
 
 
-if(match.awayRuns.length === 0){
+if(match.status === "試合前"){
+
+    awayRunsList.innerHTML = "";
+
+}else if(match.awayRuns.length === 0){
 
     awayRunsList.innerHTML = "<li>なし</li>";
 
@@ -223,30 +231,27 @@ if(match.awayRuns.length === 0){
 
     match.awayRuns.forEach((run,index)=>{
 
-    const samePlayerCount =
-        match.awayRuns
-        .slice(0,index)
-        .filter(r=>r.player === run.player)
-        .length;
+        const samePlayerCount =
+            match.awayRuns
+            .slice(0,index)
+            .filter(r=>r.player === run.player)
+            .length;
 
+        const number =
+        showHomeRunNumber
+        ? getHomeRunNumber(match.id, run.player) - samePlayerCount
+        : null;
 
-    const number =
-    showHomeRunNumber
-    ? getHomeRunNumber(match.id, run.player) - samePlayerCount
-    : null;
+        awayRunsList.innerHTML += `
+            <li>
+                ${run.player}
+                ${number ? `${number}号` : ""}
+            </li>
+        `;
 
-
-    awayRunsList.innerHTML += `
-        <li>
-            ${run.player}
-            ${number ? `${number}号` : ""}
-        </li>
-    `;
-
-});
+    });
 
 }
-
 document.getElementById("homeStealsTitle").textContent = match.home;
 document.getElementById("awayStealsTitle").textContent = match.away;
 
@@ -260,20 +265,44 @@ homeStealsList.innerHTML = "";
 awayStealsList.innerHTML = "";
 
 // ホームチーム
-if(match.homeSteals.length === 0){
+if(match.status === "試合前"){
+
+    homeStealsList.innerHTML = "";
+
+}else if(match.homeSteals.length === 0){
+
     homeStealsList.innerHTML = "<li>なし</li>";
+
 }else{
+
     match.homeSteals.forEach(steal => {
-        homeStealsList.innerHTML += `<li>${steal.player}</li>`;
+
+        homeStealsList.innerHTML += `
+            <li>${steal.player}</li>
+        `;
+
     });
+
 }
 
 // アウェーチーム
-if(match.awaySteals.length === 0){
+if(match.status === "試合前"){
+
+    awayStealsList.innerHTML = "";
+
+}else if(match.awaySteals.length === 0){
+
     awayStealsList.innerHTML = "<li>なし</li>";
+
 }else{
+
     match.awaySteals.forEach(steal => {
-        awayStealsList.innerHTML += `<li>${steal.player}</li>`;
+
+        awayStealsList.innerHTML += `
+            <li>${steal.player}</li>
+        `;
+
     });
+
 }
 });
