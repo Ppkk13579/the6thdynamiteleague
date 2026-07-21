@@ -1,10 +1,12 @@
+window.addEventListener("matchesLoaded", () => {
+
+const matches = window.matches;
+
 const params =
 new URLSearchParams(window.location.search);
 
-
 const stage =
 params.get("stage");
-
 
 const postseasonTitle = document.getElementById("postseason-title");
 
@@ -478,5 +480,7 @@ window.addEventListener("DOMContentLoaded", () => {
     if(document.getElementById("cs-bracket")){
         createCSPreview();
     }
+
+});
 
 });
