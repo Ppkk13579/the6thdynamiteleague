@@ -40,7 +40,7 @@ const postseasonData = [
     {
         stage: "ダイナマイトシリーズ",
 
-        winner: "アリゲーターズ",
+        winner: "",
 
     }
 
