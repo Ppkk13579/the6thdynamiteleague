@@ -20,7 +20,7 @@ window.addEventListener("matchesLoaded", () => {
     // 試合がない場合
     if (upcomingMatches.length === 0) {
 
-        matchList.innerHTML = "<p>今シーズンの試合は終了しました。</p>";
+        matchList.innerHTML = "<p>本日の試合はありません。</p>";
 
     } else {
 
