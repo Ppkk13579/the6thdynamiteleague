@@ -230,9 +230,14 @@ fetch(eventSheetURL)
 
 
     match.hits = {
-        home: homeInning ? homeInning.hits : 0,
-        away: awayInning ? awayInning.hits : 0
-    };
+    home: match.status === "試合前"
+        ? ""
+        : (homeInning ? homeInning.hits : 0),
+
+    away: match.status === "試合前"
+        ? ""
+        : (awayInning ? awayInning.hits : 0)
+};
 });
 
     console.log("ID一覧", sheetMatches.map(m => m.id));
