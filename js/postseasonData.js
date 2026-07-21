@@ -5,7 +5,7 @@ const postseasonData = [
         league: "シティーリーグ",
         set: "ファーストステージ",
 
-        winner: "リザーズ",
+        winner: "",
     },
 
     {
@@ -13,7 +13,7 @@ const postseasonData = [
         league: "ワイルドリーグ",
         set: "ファーストステージ",
 
-        winner: "ドッグス",
+        winner: "",
 
     },
 
@@ -22,7 +22,7 @@ const postseasonData = [
         league: "シティーリーグ",
         set: "ファイナルステージ",
 
-        advantage: "モンキーズ",
+        advantage: "",
         winner: "",
 
     },
@@ -32,7 +32,7 @@ const postseasonData = [
         league: "ワイルドリーグ",
         set: "ファイナルステージ",
 
-        advantage: "アリゲーターズ",
+        advantage: "",
         winner: "",
 
     },
