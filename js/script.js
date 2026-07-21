@@ -49,11 +49,15 @@ function createEventPreview(){
 
     area.innerHTML = "";
 
+    let hasVisibleEvent = false;
+
     Object.values(eventSettings).forEach(event=>{
 
         if(!event.visible){
             return;
         }
+
+        hasVisibleEvent = true;
 
         area.innerHTML += `
 
@@ -70,6 +74,11 @@ function createEventPreview(){
         `;
 
     });
+
+    // visible=true のイベントがある時だけ表示
+    if(hasVisibleEvent){
+        area.style.display = "block";
+    }
 
 }
 
