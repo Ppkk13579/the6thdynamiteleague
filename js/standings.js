@@ -560,54 +560,57 @@ calculateStats(Wildleague);
 
 function sortLeague(league, matches){
 
-    // ① 勝率 → ② 勝ち数で一旦並べる
-    league.sort((a, b) => {
+    league.sort((a,b)=>{
 
+        // 未試合（0勝0敗0分）は下へ
+        const aNoGame =
+            a.wins === 0 &&
+            a.losses === 0 &&
+            a.draws === 0;
+
+        const bNoGame =
+            b.wins === 0 &&
+            b.losses === 0 &&
+            b.draws === 0;
+
+        if(aNoGame && !bNoGame){
+            return 1;
+        }
+
+        if(!aNoGame && bNoGame){
+            return -1;
+        }
+
+        // 勝率
         if(b.rate !== a.rate){
             return b.rate - a.rate;
         }
 
-        return b.wins - a.wins;
+        // 勝利数
+        if(b.wins !== a.wins){
+            return b.wins - a.wins;
+        }
+
+        // 直接対決
+        const h2h = getHeadToHead(
+            a.team,
+            b.team,
+            matches
+        );
+
+        if(h2h.teamA !== h2h.teamB){
+            return h2h.teamB - h2h.teamA;
+        }
+
+        // 交流戦を除いたリーグ戦勝率
+        if(b.leagueRate !== a.leagueRate){
+            return b.leagueRate - a.leagueRate;
+        }
+
+        // 最後は得失点差
+        return b.diff - a.diff;
 
     });
-
-
-    league.sort((a,b)=>{
-
-    // 勝率
-    if(b.rate !== a.rate){
-        return b.rate - a.rate;
-    }
-
-    // 勝利数
-    if(b.wins !== a.wins){
-        return b.wins - a.wins;
-    }
-
-    // 直接対決
-    const h2h = getHeadToHead(
-        a.team,
-        b.team,
-        matches
-    );
-
-    if(h2h.teamA !== h2h.teamB){
-
-        return h2h.teamB - h2h.teamA;
-
-    }
-
-    // 交流戦を除いたリーグ戦勝率
-    if(b.leagueRate !== a.leagueRate){
-
-    return b.leagueRate - a.leagueRate;
-
-    }
-
-    // 得失点差
-    return 0;
-
-});
 
 }
 
