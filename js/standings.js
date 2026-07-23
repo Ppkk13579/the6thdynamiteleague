@@ -180,20 +180,20 @@ function calculateSpecialRanking(ranking, stage, matchesData){
     // 勝率計算
     ranking.forEach(team => {
 
-        if(team.games > 0){
+    const decisionGames = team.wins + team.losses;
 
-            team.rate =
-            team.wins / team.games;
+    if(decisionGames > 0){
 
-        }
-        else{
+        team.rate = team.wins / decisionGames;
 
-            team.rate = 0;
+    }
+    else{
 
-        }
+        team.rate = 0;
 
-    });
+    }
 
+});
 
     // 順位決定
     ranking.sort((a,b)=>{
@@ -232,10 +232,10 @@ function calculateSpecialRanking(ranking, stage, matchesData){
 
     }else{
 
-        const first = ranking[0];
+        const upper = ranking[index - 1];
 
         const diff =
-            ((first.wins - first.losses) -
+            ((upper.wins - upper.losses) -
             (team.wins - team.losses)) / 2;
 
         team.gameDiff = diff.toFixed(1);
