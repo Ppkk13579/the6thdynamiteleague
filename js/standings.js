@@ -377,8 +377,6 @@ function createSpecialTable(data, id){
 
     table.innerHTML = "";
 
-    data.sort((a,b)=>a.rank-b.rank);
-
 
     data.forEach(team => {
 
@@ -707,9 +705,7 @@ function createSimpleTable(data, id){
     if(!table) return;
 
     table.innerHTML = "";
-
-    data.sort((a,b)=>a.rank-b.rank);
-
+    
     data.forEach(team => {
 
         table.innerHTML += `
@@ -740,8 +736,6 @@ function createDetailTable(data, id){
     if(!table) return;
 
     table.innerHTML = "";
-
-    data.sort((a,b)=>a.rank-b.rank);
 
     data.forEach(team => {
 
