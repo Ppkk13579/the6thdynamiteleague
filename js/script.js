@@ -7,11 +7,12 @@ window.addEventListener("matchesLoaded", () => {
 
     const upcomingMatches = matches.filter(match => {
 
-        const matchDate = new Date(match.date + "T00:00:00");
+    const matchDate = new Date(match.date);
+    matchDate.setHours(0, 0, 0, 0);
 
-        return matchDate >= today;
+    return matchDate >= today;
 
-    });
+});
 
     upcomingMatches.sort((a, b) =>
         new Date(a.date) - new Date(b.date)
