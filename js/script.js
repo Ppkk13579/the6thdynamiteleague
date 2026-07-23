@@ -18,6 +18,11 @@ window.addEventListener("matchesLoaded", () => {
         new Date(a.date) - new Date(b.date)
     );
 
+    console.log("matchList", matchList);
+console.log("matches件数", matches.length);
+console.log("upcomingMatches件数", upcomingMatches.length);
+console.log("upcomingMatches", upcomingMatches);
+
     // 試合がない場合
     if (upcomingMatches.length === 0) {
 
