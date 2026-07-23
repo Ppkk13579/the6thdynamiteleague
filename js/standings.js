@@ -552,22 +552,7 @@ calculateStats(Wildleague);
 
 function sortLeague(league, matches){
 
-     console.log(
-        "並び替え前",
-        league.map(t => `${t.team}:${t.wins}-${t.losses} games=${t.games}`)
-    );
-    
     league.sort((a,b)=>{
-
-        // 勝率
-        if(b.rate !== a.rate){
-            return b.rate - a.rate;
-        }
-
-        // 勝利数
-        if(b.wins !== a.wins){
-            return b.wins - a.wins;
-        }
 
         // 未試合（0試合）は上へ
         const aNoGame = a.games === 0;
@@ -580,6 +565,18 @@ function sortLeague(league, matches){
         if(!aNoGame && bNoGame){
             return 1;
         }
+
+        // 勝率
+        if(b.rate !== a.rate){
+            return b.rate - a.rate;
+        }
+
+        // 勝利数
+        if(b.wins !== a.wins){
+            return b.wins - a.wins;
+        }
+
+
 
         // 直接対決
         const h2h = getHeadToHead(
