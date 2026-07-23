@@ -195,15 +195,7 @@ function calculateSpecialRanking(ranking, stage, matchesData){
 
 });
 
-    // 順位決定
-    ranking.sort((a,b)=>{
-
-    // 未試合は上
-    const aNoGame = a.games === 0;
-    const bNoGame = b.games === 0;
-
-    if(aNoGame && !bNoGame) return -1;
-    if(!aNoGame && bNoGame) return 1;
+　　ranking.sort((a,b)=>{
 
     // 勝率
     if(b.rate !== a.rate){
@@ -215,7 +207,20 @@ function calculateSpecialRanking(ranking, stage, matchesData){
         return b.wins - a.wins;
     }
 
-    return 0;
+    // 未試合は上（0-0 は 0-1 より上）
+    const aNoGame = a.games === 0;
+    const bNoGame = b.games === 0;
+
+    if(aNoGame && !bNoGame){
+        return -1;
+    }
+
+    if(!aNoGame && bNoGame){
+        return 1;
+    }
+
+    // 得失点差
+    return b.diff - a.diff;
 
 });
 
