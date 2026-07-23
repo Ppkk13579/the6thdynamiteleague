@@ -327,11 +327,13 @@ matches.forEach(match => {
     if(match.homeScore > match.awayScore){
 
         homeTeam.leagueWins++;
+        awayTeam.leagueLosses++;
 
     }
     else if(match.homeScore < match.awayScore){
 
         awayTeam.leagueWins++;
+        homeTeam.leagueLosses++;
 
     }
 
@@ -499,6 +501,7 @@ function initializeLeague(league) {
 
         team.leagueGames = 0;
         team.leagueWins = 0;
+        team.leagueLosses = 0; 
         team.leagueRate = 0;
 
         team.scored = 0;
