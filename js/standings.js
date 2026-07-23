@@ -572,24 +572,16 @@ function sortLeague(league, matches){
             return b.wins - a.wins;
         }
 
-        // 貯金・借金（勝-敗）
-        const aDiff = a.wins - a.losses;
-        const bDiff = b.wins - b.losses;
-
-        if(bDiff !== aDiff){
-            return bDiff - aDiff;
-        }
-
-        // 未試合は下へ
+        // 未試合（0試合）は上へ
         const aNoGame = a.games === 0;
         const bNoGame = b.games === 0;
 
         if(aNoGame && !bNoGame){
-            return 1;
+            return -1;
         }
 
         if(!aNoGame && bNoGame){
-            return -1;
+            return 1;
         }
 
         // 直接対決
