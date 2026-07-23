@@ -560,18 +560,6 @@ function sortLeague(league, matches){
 
     league.sort((a,b)=>{
 
-        // 未試合（0試合）は上へ
-        const aNoGame = a.games === 0;
-        const bNoGame = b.games === 0;
-
-        if(aNoGame && !bNoGame){
-            return -1;
-        }
-
-        if(!aNoGame && bNoGame){
-            return 1;
-        }
-
         // 勝率
         if(b.rate !== a.rate){
             return b.rate - a.rate;
@@ -582,14 +570,21 @@ function sortLeague(league, matches){
             return b.wins - a.wins;
         }
 
+        // 未試合（0試合）は下へ
+        // ただしここに来るのは「勝率も勝利数も同じ」場合だけ
+        const aNoGame = a.games === 0;
+        const bNoGame = b.games === 0;
 
+        if(aNoGame && !bNoGame){
+            return 1;
+        }
+
+        if(!aNoGame && bNoGame){
+            return -1;
+        }
 
         // 直接対決
-        const h2h = getHeadToHead(
-            a.team,
-            b.team,
-            matches
-        );
+        const h2h = getHeadToHead(a.team, b.team, matches);
 
         if(h2h.teamA !== h2h.teamB){
             return h2h.teamB - h2h.teamA;
@@ -604,11 +599,6 @@ function sortLeague(league, matches){
         return b.diff - a.diff;
 
     });
-
-    console.log(
-        "並び替え後",
-        league.map(t => `${t.team}:${t.wins}-${t.losses} games=${t.games}`)
-    );
 
 }
 
