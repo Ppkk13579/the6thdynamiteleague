@@ -552,6 +552,11 @@ calculateStats(Wildleague);
 
 function sortLeague(league, matches){
 
+     console.log(
+        "並び替え前",
+        league.map(t => `${t.team}:${t.wins}-${t.losses} games=${t.games}`)
+    );
+    
     league.sort((a,b)=>{
 
         // 勝率
@@ -596,6 +601,11 @@ function sortLeague(league, matches){
         return b.diff - a.diff;
 
     });
+
+    console.log(
+        "並び替え後",
+        league.map(t => `${t.team}:${t.wins}-${t.losses} games=${t.games}`)
+    );
 
 }
 
