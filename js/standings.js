@@ -679,16 +679,28 @@ function setRank(league){
 
 function calculateGameDiff(league){
 
-    league.forEach((team, index) => {
+    league.forEach((team,index)=>{
 
-        // 1位は勝差なし
+        // 首位
         if(index === 0){
 
             team.gameDiff = "-";
+            return;
+
+        }
+
+        const upper = league[index - 1];
+
+        // 同率なら 0.0
+        if(
+            team.rate === upper.rate &&
+            team.wins === upper.wins &&
+            team.losses === upper.losses
+        ){
+
+            team.gameDiff = "0.0";
 
         }else{
-
-            const upper = league[index - 1];
 
             const diff =
                 ((upper.wins - upper.losses) -
