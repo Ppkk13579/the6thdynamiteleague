@@ -198,23 +198,26 @@ function calculateSpecialRanking(ranking, stage, matchesData){
     // 順位決定
     ranking.sort((a,b)=>{
 
-        if(b.rate !== a.rate){
+    // 未試合は上
+    const aNoGame = a.games === 0;
+    const bNoGame = b.games === 0;
 
-            return b.rate - a.rate;
+    if(aNoGame && !bNoGame) return -1;
+    if(!aNoGame && bNoGame) return 1;
 
-        }
+    // 勝率
+    if(b.rate !== a.rate){
+        return b.rate - a.rate;
+    }
 
+    // 勝利数
+    if(b.wins !== a.wins){
+        return b.wins - a.wins;
+    }
 
-        if(b.wins !== a.wins){
+    return 0;
 
-            return b.wins - a.wins;
-
-        }
-
-
-        return 0;
-
-    });
+});
 
 
     // 順位を付ける
