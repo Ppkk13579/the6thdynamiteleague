@@ -539,17 +539,11 @@ function calculateStats(league){
         const leagueDecisionGames =
             team.leagueWins + team.leagueLosses;
 
-        if(leagueDecisionGames > 0){
-
-            team.leagueRate =
-            Number((team.leagueWins / leagueDecisionGames).toFixed(3));
-
-        }
-        else{
-
-            team.leagueRate = 0;
-
-        }
+        if(decisionGames > 0){
+    team.rate = Number((team.wins / decisionGames).toFixed(3));
+}else{
+    team.rate = 0;
+}
 
     });
 
