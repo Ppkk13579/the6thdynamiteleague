@@ -3401,3 +3401,8 @@ section {
     background:#F82627;
     color:#fff;
 }
+
+.scoreboard th,
+.scoreboard td{
+    font-size: 20px;
+}
