@@ -570,13 +570,24 @@ function sortLeague(league, matches){
             return b.rate - a.rate;
         }
 
+        // 直接対決（レギュラーシーズンのみ）
+        const h2h = getHeadToHead(
+            a.team,
+            b.team,
+            matches,
+            "レギュラーシーズン"
+        );
+
+        if(h2h.teamA !== h2h.teamB){
+            return h2h.teamB - h2h.teamA;
+        }
+
         // 勝利数
         if(b.wins !== a.wins){
             return b.wins - a.wins;
         }
 
         // 未試合（0試合）は下へ
-        // ただしここに来るのは「勝率も勝利数も同じ」場合だけ
         const aNoGame = a.games === 0;
         const bNoGame = b.games === 0;
 
@@ -588,33 +599,34 @@ function sortLeague(league, matches){
             return -1;
         }
 
-        // 直接対決
-        const h2h = getHeadToHead(a.team, b.team, matches);
-
-        if(h2h.teamA !== h2h.teamB){
-            return h2h.teamB - h2h.teamA;
-        }
-
-        // リーグ戦勝率
+        // リーグ内勝率
         if(b.leagueRate !== a.leagueRate){
             return b.leagueRate - a.leagueRate;
         }
 
-        // 得失点差
-        return b.diff - a.diff;
+        // 敗戦数（少ない方が上）
+        if(a.losses !== b.losses){
+            return a.losses - b.losses;
+        }
+
+        return 0;
 
     });
 
 }
 
-function getHeadToHead(teamA, teamB, matches){
+function getHeadToHead(teamA, teamB, matches, stage){
 
     let winsA = 0;
     let winsB = 0;
     let draws = 0;
 
-
     matches.forEach(match => {
+
+        // 対象ステージだけ
+        if(match.stage !== stage){
+            return;
+        }
 
         // A vs B の試合だけを見る
         if(
@@ -625,7 +637,6 @@ function getHeadToHead(teamA, teamB, matches){
             if(match.status !== "試合終了"){
                 return;
             }
-
 
             if(match.homeScore === match.awayScore){
 
@@ -649,7 +660,6 @@ function getHeadToHead(teamA, teamB, matches){
         }
 
     });
-
 
     return {
         teamA: winsA,
