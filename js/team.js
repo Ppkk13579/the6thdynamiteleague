@@ -160,10 +160,21 @@ function createSeasonTable() {
 
             for (let game = 1; game <= gameCount; game++) {
 
-            const match = teamMatches.find(match =>
-    String(match.set).trim() === String(set).trim() &&
-    Number(match.game) === Number(game)
-);
+            const match = teamMatches.find(match => {
+
+    if (set === "交流戦") {
+        return (
+            match.set === "交流戦" &&
+            match.game == game
+        );
+    }
+
+    return (
+        Number(match.set) === Number(set) &&
+        Number(match.game) === Number(game)
+    );
+
+});
 
             // 試合がまだ登録されていない場合
             if (!match) {
