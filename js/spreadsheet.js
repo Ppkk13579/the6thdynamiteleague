@@ -72,7 +72,6 @@ fetch(eventSheetURL)
     league: c[2]?.v ?? "",
 
     set: String(c[3]?.f ?? c[3]?.v ?? "").trim(),
-    console.log("set=", c[3]?.v, "→", String(c[3]?.f ?? c[3]?.v ?? "").trim());
     game: Number(c[4]?.v),
     seasonGame: c[5]?.v ?? "",
 
