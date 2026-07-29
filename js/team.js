@@ -163,10 +163,7 @@ function createSeasonTable() {
             const match = teamMatches.find(match => {
 
     if (set === "交流戦") {
-        return (
-            match.set === "交流戦" &&
-            match.game == game
-        );
+        return Number(match.game) === Number(game);
     }
 
     return (
