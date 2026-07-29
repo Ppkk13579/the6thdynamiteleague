@@ -122,6 +122,10 @@ function createSeasonTable() {
         )
     );
 
+    seasonTable.innerHTML =
+    `<pre>${JSON.stringify(teamMatches, null, 2)}</pre>`;
+return;
+
     // セットごと
     const sections = [
         1,
