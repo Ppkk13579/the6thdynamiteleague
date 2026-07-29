@@ -3417,3 +3417,28 @@ section {
     width: 150px;
     min-width: 150px;
 }
+
+@media (max-width: 700px){
+
+    .season-table th:not(.set-title),
+    .season-table td{
+        width: 90px;
+        min-width: 90px;
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    .season-logo{
+        width: 20px;
+        height: 20px;
+    }
+
+    .season-score{
+        font-size: 11px;
+    }
+
+    .set-title{
+        font-size: 13px;
+    }
+
+}
