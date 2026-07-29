@@ -125,8 +125,8 @@ function createSeasonTable() {
     // セットごと
     const sections = [
         1,
-        "交流戦",
         2,
+        "交流戦",
         3,
         4,
         5,
