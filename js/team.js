@@ -160,9 +160,9 @@ function createSeasonTable() {
             for (let game = 1; game <= gameCount; game++) {
 
             const match = teamMatches.find(match =>
-                match.set === set &&
-                match.game === game
-            );
+    String(match.set).trim() === String(set).trim() &&
+    Number(match.game) === Number(game)
+);
 
             // 試合がまだ登録されていない場合
             if (!match) {
