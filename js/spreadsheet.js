@@ -71,8 +71,8 @@ fetch(eventSheetURL)
     stage: c[1]?.v ?? "",
     league: c[2]?.v ?? "",
 
-    set: c[3]?.v ?? "",
-    game: c[4]?.v ?? "",
+    set: String(c[3]?.v ?? "").trim(),
+    game: Number(c[4]?.v),
     seasonGame: c[5]?.v ?? "",
 
     date: c[6]?.f ?? c[6]?.v ?? "",
