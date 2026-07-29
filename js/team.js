@@ -163,16 +163,19 @@ function createSeasonTable() {
             const match = teamMatches.find(match => {
 
     if (set === "交流戦") {
-        return Number(match.game) === Number(game);
+        return (
+            match.stage === "交流戦" &&
+            Number(match.game) === Number(game)
+        );
     }
 
     return (
+        match.stage === "レギュラーシーズン" &&
         Number(match.set) === Number(set) &&
         Number(match.game) === Number(game)
     );
 
 });
-
             // 試合がまだ登録されていない場合
             if (!match) {
 
