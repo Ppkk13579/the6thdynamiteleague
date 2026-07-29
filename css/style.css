@@ -3422,9 +3422,9 @@ section {
 
     .season-table th:not(.set-title),
     .season-table td{
-        width: 130px;
-        min-width: 130px;
-        font-size: 12px;
+        width: 114px;
+        min-width: 114px;
+        font-size: 10px;
         padding: 3px;
     }
 
