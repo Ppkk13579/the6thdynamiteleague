@@ -85,27 +85,6 @@ document.documentElement.style.setProperty(
     team.color
 );
 
-document.getElementById("rank").textContent =
-    `${standing.rank}位`;
-
-document.getElementById("record").innerHTML =
-`
-<span>${standing.wins}勝</span>
-<span>${standing.losses}敗</span>
-<span>${standing.draws}分</span>
-`;
-
-document.getElementById("rate").textContent =
-    standing.rate === 1
-    ? "1"
-    : Number(standing.rate).toFixed(3).replace(/^0/,"");
-
-document.getElementById("scored").textContent = standing.scored;
-
-document.getElementById("allowed").textContent = standing.allowed;
-
-document.getElementById("diff").textContent = standing.diff;    
-
 function createSeasonTable() {
 
     const seasonTable = document.getElementById("seasonTable");
@@ -263,6 +242,44 @@ function createSeasonTable() {
 }
 
 window.addEventListener("matchesLoaded", () => {
+
+    const updatedLeague =
+        team.league === "シティーリーグ"
+        ? Cityleague
+        : Wildleague;
+
+    const updatedStanding =
+        updatedLeague.find(t => t.team === teamName);
+
+    if (!updatedStanding) {
+        return;
+    }
+
+    document.getElementById("rank").textContent =
+        `${updatedStanding.rank}位`;
+
+    document.getElementById("record").innerHTML =
+    `
+    <span>${updatedStanding.wins}勝</span>
+    <span>${updatedStanding.losses}敗</span>
+    <span>${updatedStanding.draws}分</span>
+    `;
+
+    document.getElementById("rate").textContent =
+        updatedStanding.rate === 1
+        ? "1"
+        : Number(updatedStanding.rate)
+            .toFixed(3)
+            .replace(/^0/, "");
+
+    document.getElementById("scored").textContent =
+        updatedStanding.scored;
+
+    document.getElementById("allowed").textContent =
+        updatedStanding.allowed;
+
+    document.getElementById("diff").textContent =
+        updatedStanding.diff;
 
     createSeasonTable();
 
