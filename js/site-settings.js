@@ -2,7 +2,7 @@ const eventSettings = {
 
     CS: {
         name: "CS",
-        visible: false,
+        visible: true,
         link: "postseason.html?stage=CS"
     },
 
